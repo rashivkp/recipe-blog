@@ -1,440 +1,611 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tea Recipes</title>
+```
+<title>Tea Corner - Tea Recipes</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            background-color: #fff8ef;
-            color: #3e2723;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background: #faf7f2;
+        color: #33251f;
+    }
 
-        /* Header */
-        header {
-            background-color: #5d4037;
-            color: white;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* Navigation */
+    .navbar {
+        background: #2f241f;
+        color: white;
+        padding: 18px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        header h1 {
-            font-size: 28px;
-        }
+    .logo {
+        font-size: 25px;
+        font-weight: bold;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 16px;
-        }
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        margin-left: 25px;
+    }
 
-        nav a:hover {
-            color: #ffcc80;
-        }
+    .navbar a:hover {
+        color: #d9a441;
+    }
 
-        /* Hero */
-        .hero {
-            min-height: 450px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
+    /* Hero */
+    .hero {
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        padding: 60px 7%;
 
-            background: linear-gradient(
-                rgba(62, 39, 35, 0.65),
-                rgba(62, 39, 35, 0.65)
+        background:
+            linear-gradient(
+                rgba(0, 0, 0, 0.45),
+                rgba(0, 0, 0, 0.45)
             ),
             url("https://images.unsplash.com/photo-1544787219-7f47ccb76574")
             center/cover;
+    }
+
+    .hero-content {
+        max-width: 650px;
+        color: white;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        line-height: 1.7;
+    }
+
+    .hero-btn {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 13px 28px;
+        background: #d9a441;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+    }
+
+    .hero-btn:hover {
+        background: #b98525;
+    }
+
+    /* Search */
+    .search-section {
+        padding: 40px 7%;
+        text-align: center;
+    }
+
+    .search-section h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: 550px;
+        padding: 15px 20px;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    /* Recipes */
+    .recipes {
+        padding: 30px 7% 70px;
+    }
+
+    .recipe-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .recipe {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .recipe img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+    }
+
+    .recipe-body {
+        padding: 22px;
+    }
+
+    .recipe-body h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .recipe-body p {
+        color: #74665f;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 6px 12px;
+        background: #f0e0c0;
+        color: #6b4d20;
+        border-radius: 15px;
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .recipe button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        background: #2f241f;
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    .recipe button:hover {
+        background: #4b3930;
+    }
+
+    /* Featured Recipe */
+    .featured {
+        background: #eee5d8;
+        padding: 70px 7%;
+    }
+
+    .featured-container {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .featured img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .featured h2 {
+        font-size: 38px;
+        margin-bottom: 20px;
+    }
+
+    .featured h3 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .featured ul,
+    .featured ol {
+        padding-left: 22px;
+        line-height: 1.9;
+    }
+
+    /* Footer */
+    footer {
+        background: #2f241f;
+        color: white;
+        text-align: center;
+        padding: 30px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+
+        .recipe-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
 
-        .hero-content {
-            color: white;
-            max-width: 700px;
+        .featured-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 600px) {
+
+        .navbar {
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .hero h2 {
-            font-size: 50px;
-            margin-bottom: 15px;
+        .navbar a {
+            margin: 0 8px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
         }
 
         .hero p {
-            font-size: 20px;
-            line-height: 1.6;
+            font-size: 17px;
         }
 
-        .hero button {
-            margin-top: 25px;
-            padding: 13px 30px;
-            border: none;
-            border-radius: 25px;
-            background-color: #ff9800;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
+        .recipe-grid {
+            grid-template-columns: 1fr;
         }
 
-        .hero button:hover {
-            background-color: #f57c00;
+        .featured img {
+            height: 280px;
         }
+    }
+</style>
+```
 
-        /* Recipe Section */
-        .recipes {
-            padding: 60px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #795548;
-        }
-
-        .recipe-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .recipe-card {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: 0.3s;
-        }
-
-        .recipe-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .recipe-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .recipe-content {
-            padding: 20px;
-        }
-
-        .recipe-content h3 {
-            font-size: 23px;
-            margin-bottom: 10px;
-        }
-
-        .recipe-content p {
-            color: #795548;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .recipe-content button {
-            background-color: #6d4c41;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .recipe-content button:hover {
-            background-color: #4e342e;
-        }
-
-        /* Recipe Details */
-        .details {
-            background-color: #efebe9;
-            padding: 60px 8%;
-        }
-
-        .details-container {
-            max-width: 900px;
-            margin: auto;
-            background-color: white;
-            padding: 35px;
-            border-radius: 15px;
-        }
-
-        .details h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .details h3 {
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        .details ul,
-        .details ol {
-            padding-left: 25px;
-            line-height: 2;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #3e2723;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .recipe-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 8px;
-            }
-
-            .hero h2 {
-                font-size: 35px;
-            }
-
-            .recipe-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>🍵 Tea Time</h1>
+```
+<!-- Navigation -->
+<header class="navbar">
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#recipes">Recipes</a>
-            <a href="#details">How to Make</a>
-        </nav>
-    </header>
+    <div class="logo">
+        🍵 Tea Corner
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#featured">Featured</a>
+    </nav>
+
+</header>
 
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+<!-- Hero -->
+<section class="hero" id="home">
 
-        <div class="hero-content">
+    <div class="hero-content">
 
-            <h2>Perfect Tea, Every Time</h2>
+        <h1>Discover Your Perfect Cup</h1>
+
+        <p>
+            Explore simple and delicious tea recipes.
+            From classic milk tea to refreshing green tea,
+            find your favorite recipe and enjoy every sip.
+        </p>
+
+        <a href="#recipes" class="hero-btn">
+            Explore Recipes
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Search -->
+<section class="search-section">
+
+    <h2>Find Your Tea</h2>
+
+    <input
+        type="text"
+        id="search"
+        class="search-box"
+        placeholder="Search for a tea..."
+        onkeyup="searchTea()"
+    >
+
+</section>
+
+
+<!-- Recipe Cards -->
+<section class="recipes" id="recipes">
+
+    <div class="recipe-grid">
+
+        <!-- Masala Tea -->
+        <article class="recipe">
+
+            <img
+                src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2"
+                alt="Masala Tea"
+            >
+
+            <div class="recipe-body">
+
+                <span class="tag">Spicy</span>
+
+                <h3>Masala Tea</h3>
+
+                <p>
+                    A traditional Indian tea prepared with
+                    milk, spices, tea leaves and sugar.
+                </p>
+
+                <button onclick="showMessage('Masala Tea')">
+                    View Recipe
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- Green Tea -->
+        <article class="recipe">
+
+            <img
+                src="https://images.unsplash.com/photo-1556679343-c7306c1976bc"
+                alt="Green Tea"
+            >
+
+            <div class="recipe-body">
+
+                <span class="tag">Refreshing</span>
+
+                <h3>Green Tea</h3>
+
+                <p>
+                    A light and refreshing tea made by
+                    steeping green tea leaves in hot water.
+                </p>
+
+                <button onclick="showMessage('Green Tea')">
+                    View Recipe
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- Lemon Tea -->
+        <article class="recipe">
+
+            <img
+                src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd"
+                alt="Lemon Tea"
+            >
+
+            <div class="recipe-body">
+
+                <span class="tag">Fresh</span>
+
+                <h3>Lemon Tea</h3>
+
+                <p>
+                    A refreshing combination of black tea,
+                    fresh lemon juice and honey.
+                </p>
+
+                <button onclick="showMessage('Lemon Tea')">
+                    View Recipe
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- Ginger Tea -->
+        <article class="recipe">
+
+            <img
+                src="https://images.unsplash.com/photo-1576092768241-dec231879fc3"
+                alt="Ginger Tea"
+            >
+
+            <div class="recipe-body">
+
+                <span class="tag">Warm</span>
+
+                <h3>Ginger Tea</h3>
+
+                <p>
+                    A warm and aromatic drink made with
+                    fresh ginger and tea.
+                </p>
+
+                <button onclick="showMessage('Ginger Tea')">
+                    View Recipe
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- Iced Tea -->
+        <article class="recipe">
+
+            <img
+                src="https://images.unsplash.com/photo-1499638673689-79a0b5115d87"
+                alt="Iced Tea"
+            >
+
+            <div class="recipe-body">
+
+                <span class="tag">Cold</span>
+
+                <h3>Iced Tea</h3>
+
+                <p>
+                    A chilled tea drink that is perfect
+                    for hot summer afternoons.
+                </p>
+
+                <button onclick="showMessage('Iced Tea')">
+                    View Recipe
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- Honey Tea -->
+        <article class="recipe">
+
+            <img
+                src="https://images.unsplash.com/photo-1547592180-85f173990554"
+                alt="Honey Tea"
+            >
+
+            <div class="recipe-body">
+
+                <span class="tag">Sweet</span>
+
+                <h3>Honey Tea</h3>
+
+                <p>
+                    A naturally sweet tea prepared with
+                    warm water, tea and honey.
+                </p>
+
+                <button onclick="showMessage('Honey Tea')">
+                    View Recipe
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- Featured Recipe -->
+<section class="featured" id="featured">
+
+    <div class="featured-container">
+
+        <img
+            src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2"
+            alt="Masala Tea"
+        >
+
+        <div>
+
+            <h2>Masala Tea Recipe</h2>
 
             <p>
-                Discover delicious tea recipes that are easy to make
-                and perfect for every moment of the day.
+                Make a flavorful cup of homemade masala tea
+                with simple ingredients.
             </p>
-
-            <button onclick="location.href='#recipes'">
-                Explore Recipes
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- Recipes -->
-    <section class="recipes" id="recipes">
-
-        <div class="section-title">
-
-            <h2>Our Tea Recipes</h2>
-
-            <p>
-                Choose your favorite tea and enjoy a relaxing cup.
-            </p>
-
-        </div>
-
-
-        <div class="recipe-container">
-
-            <!-- Card 1 -->
-            <div class="recipe-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2"
-                    alt="Milk Tea"
-                >
-
-                <div class="recipe-content">
-
-                    <h3>Classic Milk Tea</h3>
-
-                    <p>
-                        A creamy and comforting tea made with
-                        black tea, milk and sugar.
-                    </p>
-
-                    <button onclick="showRecipe('Classic Milk Tea')">
-                        View Recipe
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- Card 2 -->
-            <div class="recipe-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9"
-                    alt="Green Tea"
-                >
-
-                <div class="recipe-content">
-
-                    <h3>Green Tea</h3>
-
-                    <p>
-                        A refreshing and healthy tea with
-                        a light and natural flavor.
-                    </p>
-
-                    <button onclick="showRecipe('Green Tea')">
-                        View Recipe
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- Card 3 -->
-            <div class="recipe-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1576092768241-dec231879fc3"
-                    alt="Ginger Tea"
-                >
-
-                <div class="recipe-content">
-
-                    <h3>Ginger Tea</h3>
-
-                    <p>
-                        A warm and spicy tea made with fresh
-                        ginger and black tea.
-                    </p>
-
-                    <button onclick="showRecipe('Ginger Tea')">
-                        View Recipe
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Recipe Details -->
-    <section class="details" id="details">
-
-        <div class="details-container">
-
-            <h2>☕ Classic Milk Tea</h2>
 
             <h3>Ingredients</h3>
 
             <ul>
                 <li>1 cup water</li>
-                <li>1 teaspoon black tea</li>
                 <li>½ cup milk</li>
-                <li>1–2 teaspoons sugar</li>
-                <li>2 cardamom pods (optional)</li>
+                <li>1 teaspoon black tea</li>
+                <li>1 teaspoon sugar</li>
+                <li>2 cardamom pods</li>
+                <li>Small piece of ginger</li>
+                <li>Small piece of cinnamon</li>
             </ul>
 
-
-            <h3>Instructions</h3>
+            <h3>Preparation</h3>
 
             <ol>
-                <li>Boil one cup of water in a saucepan.</li>
-
-                <li>
-                    Add black tea and let it boil for
-                    2–3 minutes.
-                </li>
-
-                <li>
-                    Add milk and sugar.
-                </li>
-
-                <li>
-                    Add cardamom if you prefer extra flavor.
-                </li>
-
-                <li>
-                    Simmer for another 2 minutes.
-                </li>
-
-                <li>
-                    Strain the tea into a cup and serve hot.
-                </li>
+                <li>Boil water with ginger and spices.</li>
+                <li>Add black tea and simmer for two minutes.</li>
+                <li>Add milk and sugar.</li>
+                <li>Boil for another two minutes.</li>
+                <li>Strain into a cup and serve hot.</li>
             </ol>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- Footer -->
-    <footer>
+<!-- Footer -->
+<footer>
 
-        <p>
-            © 2026 Tea Time | Made with ❤️ for Tea Lovers
-        </p>
+    <p>
+        © 2026 Tea Corner. All rights reserved.
+    </p>
 
-    </footer>
+</footer>
 
 
-    <!-- JavaScript -->
-    <script>
+<script>
 
-        function showRecipe(recipeName) {
+    function showMessage(teaName) {
 
-            alert(
-                "You selected: " +
-                recipeName +
-                "\n\nRecipe details coming soon!"
-            );
+        alert(
+            teaName +
+            " selected! Recipe details will be available soon."
+        );
 
-        }
+    }
 
-    </script>
+
+    function searchTea() {
+
+        const searchValue =
+            document
+                .getElementById("search")
+                .value
+                .toLowerCase();
+
+        const recipes =
+            document.querySelectorAll(".recipe");
+
+        recipes.forEach(function(recipe) {
+
+            const name =
+                recipe
+                    .querySelector("h3")
+                    .textContent
+                    .toLowerCase();
+
+            if (name.includes(searchValue)) {
+
+                recipe.style.display = "block";
+
+            } else {
+
+                recipe.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+</script>
+```
 
 </body>
 </html>
