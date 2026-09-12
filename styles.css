@@ -26,10 +26,15 @@ main {
 }
 
 .recipe-card {
-  padding: 1.5rem;
+  width: 350px;
+  height: 200px;
+  padding: 20px;
+  margin: 20px auto;
+  box-sizing: border-box;
+  border-radius: 10px;
   background: white;
-  border: 1px solid #ead8ca;
-  border-radius: 8px;
+  border: 1px solid #e0d0c5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-card a {
